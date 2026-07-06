@@ -21,7 +21,7 @@
         {
             "@id": "./",
             "@type": "Dataset",
-            "datePublished": "2026-07-03T12:05:27.465608",
+            "datePublished": "2026-07-06T12:35:22.708998",
             "hasPart": [
                 {
                     "@id": "metadata-and-sequences-from-bioproject-ids.ga"
@@ -78,7 +78,7 @@
                 "@id": "#galaxy"
             },
             "url": "https://github.com/iwc-workflows/metadata-and-sequences-from-bioproject-ids",
-            "version": "0.1"
+            "version": "0.2"
         },
         {
             "@id": "#galaxy",
