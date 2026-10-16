@@ -10,10 +10,18 @@
     Expand sample attributes in metadata: false
   outputs:
     SRA metadata table:
+      class: Collection
       element_tests:
         PRJNA1417618:
-          path: test-data/test1_metadata_file_split_file_000000.txt.tsv
+          asserts:
+            - that: has_n_lines
+              n: 2
+            - that: has_text
+              text: "run_accession\tstudy_accession\tstudy_title\texperiment_accession\t"
+            - that: has_line_matching
+              expression: "^SRR37073390\\tSRP674006\\t[^\\t]*\\tSRX32019766\\t[^\\t]*\\t[^\\t]*\\t190065\\tFowl aviadenovirus E\\t[^\\t]*\\tWGS\\tGENOMIC\\t[^\\t]*\\tPAIRED\\t[^\\t]*\\t[^\\t]*\\tSAMN55001290\\tPRJNA1417618\\t.*"
     Paired End Reads:
+      class: Collection
       element_tests:
         SRR37073390:
           forward:
@@ -37,14 +45,28 @@
     Expand sample attributes in metadata: false
   outputs:
     SRA metadata table:
+      class: Collection
       element_tests:
         PRJNA1425250:
-          path: test-data/test2_metadata_file_split_file_000000.txt.tsv
-          compare: contains
+          asserts:
+            - that: has_n_lines
+              n: 3
+            - that: has_text
+              text: "run_accession\tstudy_accession\tstudy_title\texperiment_accession\t"
+            - that: has_line_matching
+              expression: "^SRR37273407\\tSRP677941\\t[^\\t]*\\tSRX32206378\\t[^\\t]*\\t[^\\t]*\\t2596892\\tStreptomyces acidicola\\t[^\\t]*\\tWGS\\tGENOMIC\\t[^\\t]*\\tSINGLE\\t[^\\t]*\\t[^\\t]*\\tSAMN55411282\\tPRJNA1425250\\t.*"
+            - that: has_line_matching
+              expression: "^SRR37273408\\tSRP677941\\t[^\\t]*\\tSRX32206377\\t[^\\t]*\\t[^\\t]*\\t2596892\\tStreptomyces acidicola\\t[^\\t]*\\tWGS\\tGENOMIC\\t[^\\t]*\\tPAIRED\\t[^\\t]*\\t[^\\t]*\\tSAMN55411282\\tPRJNA1425250\\t.*"
         PRJNA1417618:
-          path: test-data/test2_metadata_file_split_file_000001.txt.tsv
-          compare: contains
+          asserts:
+            - that: has_n_lines
+              n: 2
+            - that: has_text
+              text: "run_accession\tstudy_accession\tstudy_title\texperiment_accession\t"
+            - that: has_line_matching
+              expression: "^SRR37073390\\tSRP674006\\t[^\\t]*\\tSRX32019766\\t[^\\t]*\\t[^\\t]*\\t190065\\tFowl aviadenovirus E\\t[^\\t]*\\tWGS\\tGENOMIC\\t[^\\t]*\\tPAIRED\\t[^\\t]*\\t[^\\t]*\\tSAMN55001290\\tPRJNA1417618\\t.*"
     Paired End Reads:
+      class: Collection
       element_tests:
         SRR37273408:
           forward:
@@ -65,6 +87,7 @@
             decompress: true
             compare: contains
     Single End Reads:
+      class: Collection
       element_tests:
         SRR37273407:
           path: test-data/test2_SRR37273407_forward.fastq
@@ -83,10 +106,12 @@
     Expand sample attributes in metadata: true
   outputs:
     SRA metadata table:
+      class: Collection
       element_tests:
         PRJNA1417618:
           path: test-data/test3_metadata.tsv
     Paired End Reads:
+      class: Collection
       element_tests:
         SRR37073390:
           forward:
